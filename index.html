@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Web Development: Trends &amp; Best Practices 2025</title>
+
+    <!-- All CSS from style.css is now inside this <style> tag -->
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens (Light Mode) */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            /* Light blue */
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            /* Light yellow */
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            /* Light green */
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            /* Light red */
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            /* Light purple */
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            /* Light orange */
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            /* Light pink */
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+            /* Light cyan */
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+            /* Common style patterns */
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --status-bg-opacity: 0.15;
+            --status-border-opacity: 0.25;
+            --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+            /* RGB versions for opacity control */
+            --color-success-rgb: 33, 128, 141;
+            --color-error-rgb: 192, 21, 47;
+            --color-warning-rgb: 168, 75, 47;
+            --color-info-rgb: 98, 108, 113;
+
+            /* Typography */
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+                BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+                Monaco, Consolas, monospace;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+                0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+
+            /* Presentation specific colors (merged from duplicate :root) */
+            --accent-cyan: #00D9FF;
+            --accent-purple: #A855F7;
+            --accent-green: #10B981;
+            --accent-blue: #3B82F6;
+            --accent-orange: #F59E0B;
+
+            /* Presentation specific colors */
+            --bg-gradient-start: #0F172A;
+            --bg-gradient-end: #1E1B4B;
+            --slide-bg: rgba(30, 41, 59, 0.6);
+            --text-primary: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+
+            /* Custom Presentation Styles */
+            --slide-padding: 2rem 3rem;
+            --slide-border-radius: var(--radius-lg);
+        }
+
+        /* Dark mode colors */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* RGB versions for opacity control (Dark Mode) */
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+
+                /* Background color tokens (Dark Mode) */
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                /* Dark blue */
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                /* Dark yellow */
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                /* Dark green */
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                /* Dark red */
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+                /* Dark purple */
+                --color-bg-6: rgba(194, 65, 12, 0.15);
+                /* Dark orange */
+                --color-bg-7: rgba(190, 24, 93, 0.15);
+                /* Dark pink */
+                --color-bg-8: rgba(8, 145, 178, 0.15);
+                /* Dark cyan */
+
+                /* Semantic Color Tokens (Dark Mode) */
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-error: var(--color-red-400);
+                --color-success: var(--color-teal-300);
+                --color-warning: var(--color-orange-400);
+                --color-info: var(--color-gray-300);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+                --color-btn-primary-text: var(--color-slate-900);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+                --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+                --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+                /* Common style patterns - updated for dark mode */
+                --focus-ring: 0 0 0 3px var(--color-focus-ring);
+                --focus-outline: 2px solid var(--color-primary);
+                --status-bg-opacity: 0.15;
+                --status-border-opacity: 0.25;
+                --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+                --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+                /* RGB versions for dark mode */
+                --color-success-rgb: var(--color-teal-300-rgb);
+                --color-error-rgb: var(--color-red-400-rgb);
+                --color-warning-rgb: var(--color-orange-400-rgb);
+                --color-info-rgb: var(--color-gray-300-rgb);
+
+                /* Presentation dark mode overrides */
+                --color-background: var(--bg-gradient-start);
+                --color-text: var(--text-primary);
+                --color-text-secondary: var(--text-secondary);
+            }
+        }
+
+        /* Data attribute for manual theme switching */
+        [data-color-scheme="dark"] {
+            /* ... (dark mode overrides as above) ... */
+            --color-background: var(--bg-gradient-start);
+            --color-text: var(--text-primary);
+            --color-text-secondary: var(--text-secondary);
+        }
+
+        [data-color-scheme="light"] {
+            /* ... (light mode overrides as above) ... */
+            --color-background: var(--color-cream-50);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+        }
+
+        /* Base styles */
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* Apply dark mode gradient by default */
+            background-color: var(--bg-gradient-start);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            font-weight: var(--font-weight-semibold);
+            line-height: var(--line-height-tight);
+            color: var(--color-text);
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+        }
+
+        p {
+            margin: 0 0 1rem 0;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        ul,
+        ol {
+            padding-left: 2rem;
+            margin: 0 0 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: color var(--duration-fast) var(--ease-standard);
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        strong {
+            color: var(--accent-green);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Presentation Layout */
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            margin: 1rem auto;
+            display: flex;
+            flex-direction: column;
+            background: var(--slide-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .presentation-header {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .slide-container {
+            flex-grow: 1;
+            position: relative;
+            overflow: auto;
+            padding: var(--slide-padding);
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Navigation */
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-base);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color var(--duration-fast);
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .nav-btn svg {
+            stroke: currentColor;
+            stroke-width: 2.5;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: width var(--duration-normal) var(--ease-standard);
+        }
+
+        /* --- Slide-Specific Styles --- */
+
+        /* Title Slide */
+        .slide-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .slide-title h1 {
+            font-size: 3.5rem;
+            font-weight: var(--font-weight-bold);
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .slide-title h2 {
+            font-size: 1.75rem;
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .decorative-bar {
+            height: 4px;
+            width: 100px;
+            background: var(--accent-purple);
+            margin-top: 2rem;
+            border-radius: var(--radius-full);
+        }
+
+        /* Agenda Slide */
+        .slide-agenda h2 {
+            color: var(--accent-cyan);
+            margin-bottom: 2.5rem;
+        }
+
+        .slide-agenda ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .slide-agenda li {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .slide-agenda li::before {
+            content: '✓';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+
+        /* Content Slide */
+        .slide-content h2 {
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-content h3 {
+            color: var(--accent-green);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .slide-content ul {
+            list-style-type: disc;
+        }
+
+        /* Comparison Table (Slides 6, 7, 8, 9, 10, 12, 14) */
+        .comparison-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .comparison-card {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .comparison-card h4 {
+            color: var(--accent-orange);
+            border-bottom: 1px solid var(--accent-orange);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card h5 {
+            color: var(--accent-purple);
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .comparison-card p,
+        .comparison-card ul {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .comparison-card li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Metric Cards (Slide 13) */
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .metric-card {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-card h4 {
+            color: var(--accent-orange);
+        }
+
+        .metric-name {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin: 0.5rem 0;
+        }
+
+        .metric-target {
+            font-size: 1.25rem;
+            color: var(--accent-green);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 1rem;
+        }
+
+        .metric-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .optimize-tips {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .optimize-tips strong {
+            color: var(--accent-cyan);
+        }
+
+        /* Numbered List (Slides 15, 16, 17) */
+        .numbered-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .numbered-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .numbered-item .number {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--accent-orange);
+            min-width: 40px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .numbered-item .content h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .numbered-item .content p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .numbered-item .content strong {
+            color: var(--accent-purple);
+        }
+
+        /* Checklist Grid (Slide 18) */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .checklist-section h4 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .checklist-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist-section li {
+            position: relative;
+            padding-left: 1.75rem;
+        }
+
+        .checklist-section li::before {
+            content: '✓';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Tech Stack (Slide 19) */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stack-section h4 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .stack-section p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stack-section strong {
+            color: var(--accent-cyan);
+        }
+
+        /* Takeaways (Slide 20) */
+        .takeaways-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .takeaway-item {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Closing Slide */
+        .slide-closing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .slide-closing h2 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-closing h3 {
+            font-size: 1.75rem;
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-normal);
+            margin-bottom: 3rem;
+        }
+
+        .slide-closing p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        :focus-visible {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+
+        .slide h1:focus,
+        .slide h2:focus,
+        .slide h3:focus,
+        [data-slide-focus]:focus {
+            outline: none;
+            box-shadow: var(--focus-ring);
+            border-radius: 6px;
+        }
+
+        @media (max-width: 1200px) {
+            body {
+                align-items: flex-start;
+            }
+
+            .presentation-container {
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                border-radius: 0;
+                aspect-ratio: auto;
+            }
+
+            :root {
+                --slide-padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .slide-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .slide-title h2 {
+                font-size: 1.25rem;
+            }
+
+            .comparison-table,
+            .metric-cards,
+            .checklist-grid,
+            .tech-stack,
+            .takeaways-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation-container">
+        <!-- Header with slide counter -->
+        <header class="presentation-header">
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">21</span>
+            </div>
+        </header>
+
+        <!-- Main slide area -->
+        <main class="slide-container" id="slideContainer">
+            <!-- Slides will be dynamically rendered here -->
+            <p style="color:var(--accent-orange)">Loading presentation...</p>
+        </main>
+
+        <!-- Navigation controls -->
+        <div class="navigation-controls">
+            <button class="nav-btn" id="prevBtn" aria-label="Previous slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <span>Previous</span>
+            </button>
+
+            <button class="nav-btn" id="nextBtn" aria-label="Next slide">
+                <span>Next</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- 
+      All JavaScript from app.js is here.
+      I have REMOVED the "loadSlides" function.
+      Instead, I've pasted your JSON data directly into the "slidesData" variable.
+      This fixes all the file loading errors.
+      I also removed the extra '}' syntax error from the end of the original file.
+    -->
+    <script>
+        // Slides are embedded directly from slide_deck_data.json
+        const slidesData = [
+            {
+                "slideNumber": 1,
+                "type": "title",
+                "title": "Full-Stack Web Development",
+                "subtitle": "Trends & Best Practices for 2025",
+                "backgroundTheme": "gradient"
+            },
+            {
+                "slideNumber": 2,
+                "type": "agenda",
+                "title": "What We'll Cover",
+                "items": [
+                    "Frontend Development Trends",
+                    "Backend Architecture & APIs",
+                    "Databases & Data Management",
+                    "DevOps & Deployment",
+                    "Performance Optimization",
+                    "Security Best Practices",
+                    "Emerging Technologies",
+                    "State Management Solutions",
+                    "Testing Frameworks",
+                    "Key Takeaways"
+                ]
+            },
+            {
+                "slideNumber": 3,
+                "type": "content",
+                "title": "Frontend Frameworks Landscape 2025",
+                "content": {
+                    "heading": "TypeScript Dominates",
+                    "stats": [
+                        "TypeScript overtook Python as #1 on GitHub (+66% YoY)",
+                        "React remains most popular (39.5% usage)",
+                        "Next.js 16 with Turbopack (stable) and React 19 support",
+                        "Rising stars: Svelte, SolidJS, Qwik"
+                    ],
+                    "keyPoints": [
+                        "TypeScript is now the default for new projects",
+                        "Static typing improves AI-assisted development",
+                        "Better tooling and error catching at compile-time"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 4,
+                "type": "content",
+                "title": "Next.js 16 & React 19 Features",
+                "content": {
+                    "majorFeatures": [
+                        "Cache Components - unified caching with PPR",
+                        "Turbopack (Stable) - default bundler for all apps",
+                        "React Compiler Support - automatic memoization",
+                        "Enhanced Routing - optimized navigation & prefetching",
+                        "React Server Components (RSC) - mature & production-ready",
+                        "View Transitions API - smooth page animations"
+                    ],
+                    "benefits": [
+                        "Instant navigation with improved caching",
+                        "Faster build times and startup",
+                        "Better SEO with SSR/SSG/ISR"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 5,
+                "type": "content",
+                "title": "Backend Development Trends",
+                "content": {
+                    "architectures": [
+                        "Serverless Architecture - AWS Lambda, Azure Functions, Google Cloud Functions",
+                        "Event-Driven Architectures - Kafka, RabbitMQ for real-time apps",
+                        "Microservices with Containers - Docker + Kubernetes orchestration",
+                        "Edge Computing - Cloudflare Workers at 330+ locations"
+                    ],
+                    "keyTrends": [
+                        "60% of companies use Kubernetes (projected 90% by 2027)",
+                        "Zero cold starts with V8 isolates at the edge",
+                        "API-first development is the standard"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 6,
+                "type": "content",
+                "title": "API Design Best Practices 2025",
+                "content": {
+                    "comparison": {
+                        "REST": {
+                            "useFor": "CRUD operations, public APIs, simple hierarchical data",
+                            "pros": "Simple, widespread adoption, HTTP methods",
+                            "cons": "Over-fetching, under-fetching data"
+                        },
+                        "GraphQL": {
+                            "useFor": "Complex client-driven apps, SPAs, mobile apps",
+                            "pros": "Flexible queries, precise data fetching, strong tooling",
+                            "cons": "Complex setup, nested query performance"
+                        },
+                        "gRPC": {
+                            "useFor": "Microservices communication, real-time data transfer",
+                            "pros": "High performance, binary protocol, bidirectional streaming",
+                            "cons": "Steeper learning curve, less human-readable"
+                        }
+                    },
+                    "bestPractices": [
+                        "Version your APIs (semantic versioning)",
+                        "Implement OAuth 2.0, JWT for authentication",
+                        "Use rate limiting and input validation",
+                        "Enable HTTPS and compression"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 7,
+                "type": "content",
+                "title": "Database Trends: PostgreSQL vs MongoDB",
+                "content": {
+                    "postgresql2025": {
+                        "advances": [
+                            "PgVector 0.7 - native vector embeddings for AI/ML",
+                            "Improved logical replication - near-zero downtime scaling",
+                            "JSONB enhancements - better nested document indexing",
+                            "Postgres FDW 2.0 - query external data sources"
+                        ],
+                        "bestFor": "Strong consistency, complex relational queries, mixed workloads"
+                    },
+                    "mongodb2025": {
+                        "advances": [
+                            "Atlas Vector Search 2.1 - AI-native query capabilities",
+                            "Queryable Encryption 2.0 - search over encrypted fields",
+                            "Multi-Region Write Clusters - lower latency globally",
+                            "Time-Series enhancements - faster IoT analytics"
+                        ],
+                        "bestFor": "Dynamic schemas, sharded clusters, real-time applications"
+                    }
+                }
+            },
+            {
+                "slideNumber": 8,
+                "type": "content",
+                "title": "Containerization: Docker & Kubernetes",
+                "content": {
+                    "docker": {
+                        "role": "Containerization engine - creates and runs containers",
+                        "idealFor": "Local development, small to medium deployments, CI/CD pipelines",
+                        "features": "Rich image registry, broad compatibility, simplified deployment"
+                    },
+                    "kubernetes": {
+                        "role": "Container orchestration platform - manages and scales containers",
+                        "idealFor": "Large dynamic environments, auto-scaling, hybrid/multi-cloud",
+                        "features": "Self-healing, automated rollouts, service discovery"
+                    },
+                    "realImpact": [
+                        "60% faster deployments (3-5 hours → 45 minutes)",
+                        "99.9% uptime with Kubernetes",
+                        "25% cost reduction via dynamic scaling",
+                        "52% faster peak response times"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 9,
+                "type": "content",
+                "title": "CI/CD: GitHub Actions vs Jenkins",
+                "content": {
+                    "githubActions": {
+                        "strengths": [
+                            "Native GitHub integration - event-driven workflows",
+                            "YAML-based configuration - easy to learn",
+                            "GitHub-hosted + self-hosted runners",
+                            "Built-in secrets management",
+                            "Auto-scaling - no maintenance"
+                        ],
+                        "bestFor": "Smaller teams, GitHub users, modern workflows"
+                    },
+                    "jenkins": {
+                        "strengths": [
+                            "1,800+ plugins - highly customizable",
+                            "Self-hosted - full control",
+                            "Groovy-based pipelines",
+                            "Extensive enterprise adoption",
+                            "Custom dashboards"
+                        ],
+                        "bestFor": "Complex enterprise pipelines, custom requirements"
+                    }
+                }
+            },
+            {
+                "slideNumber": 10,
+                "type": "content",
+                "title": "Testing Frameworks 2025",
+                "content": {
+                    "jest": {
+                        "type": "Unit & Integration Testing",
+                        "features": [
+                            "Zero configuration setup",
+                            "Snapshot testing for UI consistency",
+                            "Built-in mocking and code coverage",
+                            "Runs in Node.js environment"
+                        ],
+                        "bestFor": "Logic/component testing, React apps"
+                    },
+                    "cypress": {
+                        "type": "End-to-End Testing",
+                        "features": [
+                            "Real-time reloads in browser",
+                            "Time travel debugging",
+                            "Automatic waiting for DOM elements",
+                            "Network traffic inspection"
+                        ],
+                        "bestFor": "Full application workflow testing, user journey validation"
+                    }
+                }
+            },
+            {
+                "slideNumber": 11,
+                "type": "content",
+                "title": "State Management Solutions",
+                "content": {
+                    "decisionFramework": {
+                        "contextApi": "Small to medium apps, simple prop-drilling solutions",
+                        "reduxToolkit": "Large enterprise apps with complex state logic, strict patterns",
+                        "zustand": "Medium to large apps needing simplicity + power (sweet spot)",
+                        "jotai": "Complex atomic state relationships, granular re-renders"
+                    },
+                    "trends2025": [
+                        "Zustand emerging as versatile middle ground",
+                        "Redux still strong for enterprise",
+                        "Jotai excellent for performance-critical apps",
+                        "Libraries can coexist - use right tool per domain"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 12,
+                "type": "content",
+                "title": "Deployment Platforms: Vercel vs Netlify",
+                "content": {
+                    "vercel": {
+                        "strengths": [
+                            "Deep Next.js integration - SSR, ISR, edge middleware",
+                            "Excellent DX - fast deploys, preview environments",
+                            "Strong monorepo support",
+                            "Edge functions with caching"
+                        ],
+                        "bestFor": "Dynamic Next.js apps, full-stack projects",
+                        "pricing": "$20/user/month - 1TB bandwidth"
+                    },
+                    "netlify": {
+                        "strengths": [
+                            "JAMstack-focused - static site generators",
+                            "Built-in forms, identity, A/B testing",
+                            "Plugin ecosystem",
+                            "Split testing capabilities"
+                        ],
+                        "bestFor": "Static sites, content-heavy websites, portfolios",
+                        "pricing": "$19/user/month - 100GB bandwidth"
+                    }
+                }
+            },
+            {
+                "slideNumber": 13,
+                "type": "content",
+                "title": "Performance Optimization: Core Web Vitals",
+                "content": {
+                    "2025_metrics": {
+                        "LCP": {
+                            "name": "Largest Contentful Paint",
+                            "target": "≤ 2.5 seconds",
+                            "measures": "Loading performance",
+                            "optimize": "Compress images, use CDN, minimize TTFB, lazy loading"
+                        },
+                        "INP": {
+                            "name": "Interaction to Next Paint",
+                            "target": "≤ 200 milliseconds",
+                            "measures": "Interactivity (replaced FID)",
+                            "optimize": "Limit JavaScript, defer non-critical scripts, modern frameworks"
+                        },
+                        "CLS": {
+                            "name": "Cumulative Layout Shift",
+                            "target": "≤ 0.1",
+                            "measures": "Visual stability",
+                            "optimize": "Specify image dimensions, preload fonts, avoid dynamic inserts"
+                        }
+                    },
+                    "impact": "Better SEO rankings, lower bounce rates, higher conversions"
+                }
+            },
+            {
+                "slideNumber": 14,
+                "type": "content",
+                "title": "Edge Computing Revolution",
+                "content": {
+                    "whatIsEdge": "Execute code milliseconds from users at 330+ global locations",
+                    "cloudflareWorkers": {
+                        "benefits": [
+                            "Near-zero cold starts with V8 isolates",
+                            "Ultra-low latency - run close to users",
+                            "No infrastructure management",
+                            "Auto-scaling globally",
+                            "Cost-effective pay-per-request"
+                        ],
+                        "useCases": [
+                            "Authentication & authorization",
+                            "API gateways & routing",
+                            "Real-time data processing",
+                            "A/B testing & personalization",
+                            "Image optimization"
+                        ]
+                    },
+                    "trend": "75+ billion IoT devices by 2025 - edge computing essential"
+                }
+            },
+            {
+                "slideNumber": 15,
+                "type": "content",
+                "title": "Web Security: OWASP Top 10 2025",
+                "content": {
+                    "criticalRisks": [
+                        {
+                            "rank": 1,
+                            "name": "Broken Access Control",
+                            "mitigation": "RBAC, zero-trust, validate permissions server-side"
+                        },
+                        {
+                            "rank": 2,
+                            "name": "Cryptographic Failures",
+                            "mitigation": "Hash passwords (bcrypt, Argon2), use TLS/HTTPS"
+                        },
+                        {
+                            "rank": 3,
+                            "name": "Injection (SQL, XSS, AI prompts)",
+                            "mitigation": "Sanitize input, parameterized queries, validation libraries"
+                        },
+                        {
+                            "rank": 4,
+                            "name": "Insecure Design",
+                            "mitigation": "Threat modeling, secure by design, security early"
+                        },
+                        {
+                            "rank": 5,
+                            "name": "Security Misconfiguration",
+                            "mitigation": "Default deny, disable unused features, regular audits"
+                        }
+                    ],
+                    "bestPractices": [
+                        "OAuth 2.0 / JWT for authentication",
+                        "Rate limiting & input validation",
+                        "Enable HTTPS everywhere",
+                        "Monitor & log security events"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 16,
+                "type": "content",
+                "title": "Top 10 Full-Stack Trends 2025",
+                "content": {
+                    "trends": [
+                        {
+                            "number": 1,
+                            "name": "AI-Powered Development",
+                            "description": "AI coding assistants, automated code generation, intelligent features"
+                        },
+                        {
+                            "number": 2,
+                            "name": "Low-Code/No-Code Platforms",
+                            "description": "65% development will use LCNC - faster deployment, lower costs"
+                        },
+                        {
+                            "number": 3,
+                            "name": "Progressive Web Apps (PWAs)",
+                            "description": "Offline access, push notifications, app-like experience on web"
+                        },
+                        {
+                            "number": 4,
+                            "name": "Cloud-Native Architecture",
+                            "description": "AWS, Azure, GCP - pay-as-you-go, auto-scaling, collaboration"
+                        },
+                        {
+                            "number": 5,
+                            "name": "DevOps Integration",
+                            "description": "CI/CD pipelines, automated testing, faster release cycles"
+                        }
+                    ]
+                }
+            },
+            {
+                "slideNumber": 17,
+                "type": "content",
+                "title": "Top 10 Full-Stack Trends 2025 (cont.)",
+                "content": {
+                    "trends": [
+                        {
+                            "number": 6,
+                            "name": "Blockchain & Web3",
+                            "description": "Decentralized apps, secure transactions, transparent systems"
+                        },
+                        {
+                            "number": 7,
+                            "name": "Data Science Integration",
+                            "description": "ML models in apps, data visualization, predictive analytics"
+                        },
+                        {
+                            "number": 8,
+                            "name": "Cybersecurity First",
+                            "description": "Zero-trust security, encryption, secure coding practices"
+                        },
+                        {
+                            "number": 9,
+                            "name": "JAMstack Architecture",
+                            "description": "JavaScript, APIs, Markup - decoupled, fast, secure"
+                        },
+                        {
+                            "number": 10,
+                            "name": "AR/VR Web Experiences",
+                            "description": "Immersive UI, WebXR, gaming, healthcare, education apps"
+                        }
+                    ]
+                }
+            },
+            {
+                "slideNumber": 18,
+                "type": "content",
+                "title": "Best Practices Checklist",
+                "content": {
+                    "development": [
+                        "✓ Use TypeScript for type safety",
+                        "✓ Implement comprehensive testing (Jest + Cypress)",
+                        "✓ Follow SOLID principles & modular architecture",
+                        "✓ Write clean, self-documenting code"
+                    ],
+                    "performance": [
+                        "✓ Optimize Core Web Vitals (LCP, INP, CLS)",
+                        "✓ Implement lazy loading & code splitting",
+                        "✓ Use CDN & caching strategies",
+                        "✓ Monitor with RUM & APM tools"
+                    ],
+                    "security": [
+                        "✓ Follow OWASP Top 10 guidelines",
+                        "✓ Implement proper authentication/authorization",
+                        "✓ Sanitize all user input",
+                        "✓ Keep dependencies updated"
+                    ],
+                    "deployment": [
+                        "✓ Automate with CI/CD pipelines",
+                        "✓ Use containerization (Docker + K8s)",
+                        "✓ Implement blue-green deployments",
+                        "✓ Monitor logs & set up alerts"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 19,
+                "type": "content",
+                "title": "Technology Stack Recommendations",
+                "content": {
+                    "frontend": {
+                        "framework": "Next.js 16 (React 19) with TypeScript",
+                        "styling": "Tailwind CSS / Utility-first frameworks",
+                        "state": "Zustand (balanced) or Redux Toolkit (complex apps)",
+                        "testing": "Jest + Cypress"
+                    },
+                    "backend": {
+                        "runtime": "Node.js with Express or Nest.js",
+                        "api": "REST + GraphQL hybrid approach",
+                        "database": "PostgreSQL (relational) + Redis (caching)",
+                        "auth": "OAuth 2.0 / JWT"
+                    },
+                    "infrastructure": {
+                        "containers": "Docker + Kubernetes",
+                        "ci_cd": "GitHub Actions (small teams) / Jenkins (enterprise)",
+                        "deployment": "Vercel (Next.js) or AWS/Azure (full control)",
+                        "monitoring": "Datadog / New Relic / Prometheus"
+                    }
+                }
+            },
+            {
+                "slideNumber": 20,
+                "type": "content",
+                "title": "Key Takeaways",
+                "content": {
+                    "mainPoints": [
+                        "🚀 TypeScript is the new JavaScript standard - adopt it now",
+                        "⚡ Performance matters - optimize Core Web Vitals for SEO & UX",
+                        "🔒 Security is non-negotiable - implement OWASP best practices",
+                        "☁️ Embrace cloud-native & edge computing for scalability",
+                        "🔄 Automate everything - CI/CD, testing, deployments",
+                        "📊 Choose the right tool for the job - no one-size-fits-all",
+                        "🧪 Test comprehensively - unit, integration, E2E",
+                        "📦 Containerize & orchestrate for reliability",
+                        "🎯 Focus on developer experience & maintainability",
+                        "🌐 Stay updated - tech evolves rapidly in 2025"
+                    ]
+                }
+            },
+            {
+                "slideNumber": 21,
+                "type": "closing",
+                "title": "Thank You!",
+                "subtitle": "Questions & Discussion",
+                "footer": "Full-Stack Web Development Trends & Best Practices 2025"
+            }
+        ];
+
+        // State management
+        let currentSlideIndex = 0;
+        let totalSlides = 0;
+
+        // Helper: safe element getter
+        function getEl(id) {
+            const el = document.getElementById(id);
+            if (!el) console.warn(`Missing element with id: ${id}`);
+            return el;
+        }
+
+        function createElement(tag, attributes, ...children) {
+            const element = document.createElement(tag);
+            if (attributes) {
+                for (const key in attributes) {
+                    element.setAttribute(key, attributes[key]);
+                }
+            }
+            for (const child of children) {
+                if (child instanceof Node) {
+                    // If it's already a DOM Node, append it
+                    element.appendChild(child);
+                } else if (child !== null && child !== undefined) {
+                    // If it's a string, number, or anything else,
+                    // convert it to a string and create a text node
+                    element.appendChild(document.createTextNode(String(child)));
+                }
+            }
+            return element;
+        }
+
+        // DOM elements (queried on script run; elements are in the page since script is at end of body)
+        const slideContainer = getEl('slideContainer');
+        const currentSlideEl = getEl('currentSlide');
+        const totalSlidesEl = getEl('totalSlides');
+        const prevBtn = getEl('prevBtn');
+        const nextBtn = getEl('nextBtn');
+        const progressBar = getEl('progressBar');
+        const progressContainer = getEl('progressContainer');
+
+        // Initialize
+        function init() {
+            if (!slidesData || slidesData.length === 0) {
+                console.error('No slides data found!');
+                if (slideContainer) slideContainer.innerHTML = '<p style="color:var(--accent-orange)">Error: No slide data is available.</p>';
+                return;
+            }
+
+            console.log('Initializing with slides data:', slidesData);
+            totalSlides = slidesData.length;
+            console.log('Total slides:', totalSlides);
+            if (totalSlidesEl) totalSlidesEl.textContent = totalSlides;
+
+            // Check if all DOM elements are present
+            if (!slideContainer || !currentSlideEl || !totalSlidesEl || !prevBtn || !nextBtn || !progressBar || !progressContainer) {
+                console.error('One or more critical DOM elements are missing. Presentation cannot start.');
+                if (slideContainer) slideContainer.innerHTML = '<p style="color:var(--accent-orange)">Error: DOM elements missing. Check console.</p>';
+                return;
+            }
+
+            renderSlide(currentSlideIndex);
+            updateNavigation();
+            setupEventListeners();
+            // Accessibility: mark slide container as a live region so screen readers announce slide changes
+            if (slideContainer) {
+                slideContainer.setAttribute('role', 'region');
+                slideContainer.setAttribute('aria-live', 'polite');
+                slideContainer.setAttribute('aria-label', 'Slide content');
+            }
+        }
+
+        // Render slide based on type
+        function renderSlide(index) {
+            const slide = slidesData[index];
+            if (!slide) {
+                console.error(`No slide data found for index: ${index}`);
+                return;
+            }
+
+            let content;
+
+            switch (slide.type) {
+                case 'title':
+                    content = renderTitleSlide(slide);
+                    break;
+                case 'agenda':
+                    content = renderAgendaSlide(slide);
+                    break;
+                case 'content':
+                    content = renderContentSlide(slide);
+                    break;
+                case 'closing':
+                    content = renderClosingSlide(slide);
+                    break;
+                default:
+                    content = createElement('p', null, `Unknown slide type: ${slide.type}`);
+            }
+
+            slideContainer.innerHTML = '';
+            slideContainer.appendChild(createElement('div', { class: 'slide' }, content));
+            if (currentSlideEl) currentSlideEl.textContent = slide.slideNumber;
+            updateProgressBar();
+
+            // Accessibility: move focus to the first meaningful heading inside the newly rendered slide.
+            // We set tabindex="-1" so the element is programmatically focusable without adding it to the tab order.
+            try {
+                const slideEl = slideContainer.querySelector('.slide');
+                if (slideEl) {
+                    const focusEl = slideEl.querySelector('h1, h2, h3, [data-slide-focus]');
+                    if (focusEl) {
+                        focusEl.setAttribute('tabindex', '-1');
+                        focusEl.focus({ preventScroll: true });
+                    }
+                }
+            } catch (err) {
+                // Swallow focus errors on older browsers
+                console.warn('Focus management failed:', err);
+            }
+        }
+
+        function renderTitleSlide(slide) {
+            return createElement('div', { class: 'slide-title' },
+                createElement('h1', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h2', null, slide.subtitle),
+                createElement('div', { class: 'decorative-bar' })
+            );
+        }
+
+        function renderAgendaSlide(slide) {
+            return createElement('div', { class: 'slide-agenda' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('ul', null, ...slide.items.map(item => createElement('li', null, item)))
+            );
+        }
+
+        function renderContentSlide(slide) {
+            let content;
+
+            // Special handling for different slide numbers
+            switch (slide.slideNumber) {
+                case 3:
+                    content = renderSlide3(slide);
+                    break;
+                case 4:
+                    content = renderSlide4(slide);
+                    break;
+                case 5:
+                    content = renderSlide5(slide);
+                    break;
+                case 6:
+                    content = renderSlide6(slide);
+                    break;
+                case 7:
+                    content = renderSlide7(slide);
+                    break;
+                case 8:
+                    content = renderSlide8(slide);
+                    break;
+                case 9:
+                    content = renderSlide9(slide);
+                    break;
+                case 10:
+                    content = renderSlide10(slide);
+                    break;
+                case 11:
+                    content = renderSlide11(slide);
+                    break;
+                case 12:
+                    content = renderSlide12(slide);
+                    break;
+                case 13:
+                    content = renderSlide13(slide);
+                    break;
+                case 14:
+                    content = renderSlide14(slide);
+                    break;
+                case 15:
+                    content = renderSlide15(slide);
+                    break;
+                case 16:
+                case 17:
+                    content = renderSlide16_17(slide);
+                    break;
+                case 18:
+                    content = renderSlide18(slide);
+                    break;
+                case 19:
+                    content = renderSlide19(slide);
+                    break;
+                case 20:
+                    content = renderSlide20(slide);
+                    break;
+                default:
+                    content = createElement('p', null, 'Content slide not implemented.');
+            }
+
+            // FIX: 'content' can be an array of nodes (from renderSlide3, etc.)
+            // or a single node (from the default case).
+            // We must spread 'content' if it's an array so its elements become
+            // individual children for createElement.
+            if (Array.isArray(content)) {
+                return createElement('div', { class: 'slide-content' }, ...content);
+            }
+            // If content is not an array, it's a single node
+            return createElement('div', { class: 'slide-content' }, content);
+        }
+
+        function renderSlide3(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, slide.content.heading),
+                createElement('ul', null, ...slide.content.stats.map(stat => createElement('li', null, stat))),
+                createElement('h3', null, 'Key Points'),
+                createElement('ul', null, ...slide.content.keyPoints.map(point => createElement('li', null, point)))
+            ];
+        }
+
+        function renderSlide4(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, 'Major Features'),
+                createElement('ul', null, ...slide.content.majorFeatures.map(f => createElement('li', null, f))),
+                createElement('h3', null, 'Benefits'),
+                createElement('ul', null, ...slide.content.benefits.map(b => createElement('li', null, b)))
+            ];
+        }
+
+        function renderSlide5(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, 'Architectures'),
+                createElement('ul', null, ...slide.content.architectures.map(a => createElement('li', null, a))),
+                createElement('h3', null, 'Key Trends'),
+                createElement('ul', null, ...slide.content.keyTrends.map(t => createElement('li', null, t)))
+            ];
+        }
+
+        function renderSlide6(slide) {
+            const comp = slide.content.comparison;
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'REST'),
+                        createElement('h5', null, 'Use For'),
+                        createElement('p', null, comp.REST.useFor),
+                        createElement('h5', null, 'Pros'),
+                        createElement('p', null, comp.REST.pros),
+                        createElement('h5', null, 'Cons'),
+                        createElement('p', null, comp.REST.cons)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'GraphQL'),
+                        createElement('h5', null, 'Use For'),
+                        createElement('p', null, comp.GraphQL.useFor),
+                        createElement('h5', null, 'Pros'),
+                        createElement('p', null, comp.GraphQL.pros),
+                        createElement('h5', null, 'Cons'),
+                        createElement('p', null, comp.GraphQL.cons)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'gRPC'),
+                        createElement('h5', null, 'Use For'),
+                        createElement('p', null, comp.gRPC.useFor),
+                        createElement('h5', null, 'Pros'),
+                        createElement('p', null, comp.gRPC.pros),
+                        createElement('h5', null, 'Cons'),
+                        createElement('p', null, comp.gRPC.cons)
+                    )
+                ),
+                createElement('h3', null, 'Best Practices'),
+                createElement('ul', null, ...slide.content.bestPractices.map(p => createElement('li', null, p)))
+            ];
+        }
+
+        function renderSlide7(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'PostgreSQL 2025'),
+                        createElement('h5', null, 'Advances'),
+                        createElement('ul', null, ...slide.content.postgresql2025.advances.map(a => createElement('li', null, a))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.postgresql2025.bestFor)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'MongoDB 2025'),
+                        createElement('h5', null, 'Advances'),
+                        createElement('ul', null, ...slide.content.mongodb2025.advances.map(a => createElement('li', null, a))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.mongodb2025.bestFor)
+                    )
+                )
+            ];
+        }
+
+        function renderSlide8(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Docker'),
+                        createElement('h5', null, 'Role'),
+                        createElement('p', null, slide.content.docker.role),
+                        createElement('h5', null, 'Ideal For'),
+                        createElement('p', null, slide.content.docker.idealFor),
+                        createElement('h5', null, 'Features'),
+                        createElement('p', null, slide.content.docker.features)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Kubernetes'),
+                        createElement('h5', null, 'Role'),
+                        createElement('p', null, slide.content.kubernetes.role),
+                        createElement('h5', null, 'Ideal For'),
+                        createElement('p', null, slide.content.kubernetes.idealFor),
+                        createElement('h5', null, 'Features'),
+                        createElement('p', null, slide.content.kubernetes.features)
+                    )
+                ),
+                createElement('h3', null, 'Real Impact'),
+                createElement('ul', null, ...slide.content.realImpact.map(i => createElement('li', null, i)))
+            ];
+        }
+
+        function renderSlide9(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'GitHub Actions'),
+                        createElement('h5', null, 'Strengths'),
+                        createElement('ul', null, ...slide.content.githubActions.strengths.map(s => createElement('li', null, s))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.githubActions.bestFor)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Jenkins'),
+                        createElement('h5', null, 'Strengths'),
+                        createElement('ul', null, ...slide.content.jenkins.strengths.map(s => createElement('li', null, s))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.jenkins.bestFor)
+                    )
+                )
+            ];
+        }
+
+        function renderSlide10(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Jest'),
+                        createElement('h5', null, slide.content.jest.type),
+                        createElement('ul', null, ...slide.content.jest.features.map(f => createElement('li', null, f))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.jest.bestFor)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Cypress'),
+                        createElement('h5', null, slide.content.cypress.type),
+                        createElement('ul', null, ...slide.content.cypress.features.map(f => createElement('li', null, f))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.cypress.bestFor)
+                    )
+                )
+            ];
+        }
+
+        function renderSlide11(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, 'Decision Framework'),
+                createElement('ul', null, ...Object.entries(slide.content.decisionFramework).map(([name, desc]) => createElement('li', null, createElement('strong', null, `${name}: `), desc))),
+                createElement('h3', null, '2025 Trends'),
+                createElement('ul', null, ...slide.content.trends2025.map(t => createElement('li', null, t)))
+            ];
+        }
+
+        function renderSlide12(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Vercel'),
+                        createElement('h5', null, 'Strengths'),
+                        createElement('ul', null, ...slide.content.vercel.strengths.map(s => createElement('li', null, s))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.vercel.bestFor),
+                        createElement('h5', null, 'Pricing'),
+                        createElement('p', null, slide.content.vercel.pricing)
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Netlify'),
+                        createElement('h5', null, 'Strengths'),
+                        createElement('ul', null, ...slide.content.netlify.strengths.map(s => createElement('li', null, s))),
+                        createElement('h5', null, 'Best For'),
+                        createElement('p', null, slide.content.netlify.bestFor),
+                        createElement('h5', null, 'Pricing'),
+                        createElement('p', null, slide.content.netlify.pricing)
+                    )
+                )
+            ];
+        }
+
+        function renderSlide13(slide) {
+            const metrics = slide.content["2025_metrics"];
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'metric-cards' },
+                    createElement('div', { class: 'metric-card' },
+                        createElement('h4', null, metrics.LCP.name),
+                        createElement('div', { class: 'metric-name' }, 'LCP'),
+                        createElement('div', { class: 'metric-target' }, metrics.LCP.target),
+                        createElement('div', { class: 'metric-description' }, metrics.LCP.measures),
+                        createElement('div', { class: 'optimize-tips' }, createElement('strong', null, 'Optimize:'), ` ${metrics.LCP.optimize}`)
+                    ),
+                    createElement('div', { class: 'metric-card' },
+                        createElement('h4', null, metrics.INP.name),
+                        createElement('div', { class: 'metric-name' }, 'INP'),
+                        createElement('div', { class: 'metric-target' }, metrics.INP.target),
+                        createElement('div', { class: 'metric-description' }, metrics.INP.measures),
+                        createElement('div', { class: 'optimize-tips' }, createElement('strong', null, 'Optimize:'), ` ${metrics.INP.optimize}`)
+                    ),
+                    createElement('div', { class: 'metric-card' },
+                        createElement('h4', null, metrics.CLS.name),
+                        createElement('div', { class: 'metric-name' }, 'CLS'),
+                        createElement('div', { class: 'metric-target' }, metrics.CLS.target),
+                        createElement('div', { class: 'metric-description' }, metrics.CLS.measures),
+                        createElement('div', { class: 'optimize-tips' }, createElement('strong', null, 'Optimize:'), ` ${metrics.CLS.optimize}`)
+                    )
+                ),
+                createElement('p', { style: 'text-align: center; font-size: 1.2rem; margin-top: 2rem; color: var(--accent-green);' },
+                    createElement('strong', null, 'Impact:'), ` ${slide.content.impact}`)
+            ];
+        }
+
+        function renderSlide14(slide) {
+            return [
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('p', { style: 'font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-cyan);' }, slide.content.whatIsEdge),
+                createElement('div', { class: 'comparison-table' },
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Cloudflare Workers Benefits'),
+                        createElement('ul', null, ...slide.content.cloudflareWorkers.benefits.map(b => createElement('li', null, b)))
+                    ),
+                    createElement('div', { class: 'comparison-card' },
+                        createElement('h4', null, 'Use Cases'),
+                        createElement('ul', null, ...slide.content.cloudflareWorkers.useCases.map(u => createElement('li', null, u)))
+                    )
+                ),
+                createElement('p', { style: 'text-align: center; font-size: 1.15rem; margin-top: 2rem; color: var(--accent-purple);' }, createElement('strong', null, 'Trend:'), ' ', slide.content.trend)
+            ];
+        }
+
+        function renderSlide15(slide) {
+            const risks = slide.content.criticalRisks.map(r =>
+                createElement('div', { class: 'numbered-item' },
+                    createElement('div', { class: 'number' }, r.rank),
+                    createElement('div', { class: 'content' },
+                        createElement('h4', null, r.name),
+                        createElement('p', null, createElement('strong', null, 'Mitigation:'), ' ', r.mitigation)
+                    )
+                )
+            );
+
+            return createElement('div', { class: 'slide-content' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, 'Critical Risks'),
+                createElement('div', { class: 'numbered-list' }, ...risks),
+                createElement('h3', null, 'Best Practices'),
+                createElement('ul', null, ...slide.content.bestPractices.map(p => createElement('li', null, p)))
+            );
+        }
+
+        function renderSlide16_17(slide) {
+            const trends = slide.content.trends.map(t =>
+                createElement('div', { class: 'numbered-item' },
+                    createElement('div', { class: 'number' }, t.number),
+                    createElement('div', { class: 'content' },
+                        createElement('h4', null, t.name),
+                        createElement('p', null, t.description)
+                    )
+                )
+            );
+
+            return createElement('div', { class: 'slide-content' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'numbered-list' }, ...trends)
+            );
+        }
+
+        function renderSlide18(slide) {
+            const allSections = [];
+            Object.entries(slide.content).forEach(([category, items]) => {
+                allSections.push(createElement('div', { class: 'checklist-section' },
+                    createElement('h4', null, category.charAt(0).toUpperCase() + category.slice(1)),
+                    createElement('ul', null, ...items.map(item => createElement('li', null, item)))
+                ));
+            });
+
+            return createElement('div', { class: 'slide-content' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'checklist-grid' }, ...allSections)
+            );
+        }
+
+        function renderSlide19(slide) {
+            const stacks = Object.entries(slide.content)
+                .map(([category, items]) => {
+                    const details = Object.entries(items)
+                        .map(([key, value]) => createElement('p', null, createElement('strong', null, `${key.charAt(0).toUpperCase() + key.slice(1)}:`), ' ', value));
+                    return createElement('div', { class: 'stack-section' },
+                        createElement('h4', null, category.charAt(0).toUpperCase() + category.slice(1)),
+                        ...details
+                    );
+                });
+
+            return createElement('div', { class: 'slide-content' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'tech-stack' }, ...stacks)
+            );
+        }
+
+        function renderSlide20(slide) {
+            const takeaways = slide.content.mainPoints
+                .map(t => createElement('div', { class: 'takeaway-item' }, t));
+
+            return createElement('div', { class: 'slide-content' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('div', { class: 'takeaways-list' }, ...takeaways)
+            );
+        }
+
+        function renderClosingSlide(slide) {
+            return createElement('div', { class: 'slide-closing' },
+                createElement('h2', { 'data-slide-focus': 'true' }, slide.title),
+                createElement('h3', null, slide.subtitle),
+                createElement('p', null, slide.footer)
+            );
+        }
+
+        // Navigation functions
+        function goToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentSlideIndex = index;
+                renderSlide(currentSlideIndex);
+                updateNavigation();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                goToSlide(currentSlideIndex + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                goToSlide(currentSlideIndex - 1);
+            }
+        }
+
+        function updateNavigation() {
+            const atStart = currentSlideIndex === 0;
+            const atEnd = currentSlideIndex === totalSlides - 1;
+            if (prevBtn) {
+                prevBtn.disabled = atStart;
+                prevBtn.setAttribute('aria-disabled', atStart ? 'true' : 'false');
+            }
+            if (nextBtn) {
+                nextBtn.disabled = atEnd;
+                nextBtn.setAttribute('aria-disabled', atEnd ? 'true' : 'false');
+            }
+        }
+
+        function updateProgressBar() {
+            if (totalSlides === 0) return; // Prevent divide by zero
+            const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Event listeners
+        function setupEventListeners() {
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                // Use both `key` and `code` for broader browser support (Space vs ' ' differences).
+                const key = e.key;
+                const code = e.code;
+
+                // Don't hijack keyboard events if user is in an input, textarea, etc.
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+                    return;
+                }
+
+                if (key === 'ArrowRight' || key === 'ArrowDown' || code === 'ArrowRight' || code === 'ArrowDown') {
+                    e.preventDefault(); nextSlide();
+                    return;
+                }
+                if (key === 'ArrowLeft' || key === 'ArrowUp' || code === 'ArrowLeft' || code === 'ArrowUp') {
+                    e.preventDefault(); prevSlide();
+                    return;
+                }
+                if (key === ' ' || code === 'Space' || key === 'PageDown' || code === 'PageDown') {
+                    e.preventDefault(); nextSlide();
+                    return;
+                }
+                if (key === 'PageUp' || code === 'PageUp') {
+                    e.preventDefault(); prevSlide();
+                    return;
+                }
+                if (key === 'Home' || code === 'Home') {
+                    e.preventDefault(); goToSlide(0); return;
+                }
+                if (key === 'End' || code === 'End') {
+                    e.preventDefault(); goToSlide(totalSlides - 1); return;
+                }
+            });
+
+            // Progress bar click to jump
+            progressContainer.addEventListener('click', (e) => {
+                const rect = progressContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = x / rect.width;
+                const slideIndex = Math.floor(percentage * totalSlides);
+                goToSlide(Math.min(slideIndex, totalSlides - 1));
+            });
+        }
+
+        // Initialize the presentation by loading slide data first
+        // We call init() directly since data is already embedded.
+        // We wrap it in DOMContentLoaded to make sure all HTML elements are ready.
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+
+</html>
